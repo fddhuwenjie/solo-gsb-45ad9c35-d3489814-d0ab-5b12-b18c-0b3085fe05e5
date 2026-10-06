@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}封存卷详情 · 双卷印发校核{% endblock %}
+{% block content %}
+<h1 id="batch-title"></h1>
+<p class="muted" id="batch-meta"></p>
+<p id="print-links"></p>
+<div class="cols">
+  <section>
+    <h2>A 卷</h2>
+    <div id="version-A"></div>
+  </section>
+  <section>
+    <h2>B 卷</h2>
+    <div id="version-B"></div>
+  </section>
+</div>
+<h2>本批勘误记录</h2>
+<div id="errata-list"></div>
+{% endblock %}
+{% block scripts %}
+<script>window.BATCH_ID = {{ batch_id }};</script>
+<script src="{{ url_for('static', filename='batch.js') }}"></script>
+{% endblock %}

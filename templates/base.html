@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}双卷印发校核{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="topnav no-print">
+  <span class="brand">双卷印发校核</span>
+  <a href="/bank">题库</a>
+  <a href="/arrange">编排</a>
+  <a href="/batches">封存卷</a>
+  <a href="/errata">勘误</a>
+</nav>
+<main class="container">
+{% block content %}{% endblock %}
+</main>
+<script src="{{ url_for('static', filename='common.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

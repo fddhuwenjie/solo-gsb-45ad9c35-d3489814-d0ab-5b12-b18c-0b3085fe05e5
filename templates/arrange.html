@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}编排 · 双卷印发校核{% endblock %}
+{% block content %}
+<h1>编排 A / B 卷</h1>
+<p class="muted">分别调整两卷的题序与选项顺序（卷面字母按调整后的顺序生成）。改动自动保存；封存时以题库当前修订为两卷同时生成快照。</p>
+<div class="card">
+  <button class="primary" id="seal-btn">封存 A、B 卷</button>
+  <span class="muted">封存后修改题库不影响本批已印卷面与答题卡。</span>
+  <div class="msg" id="seal-msg" style="display:none"></div>
+</div>
+<div class="cols">
+  <section>
+    <h2>A 卷</h2>
+    <div id="col-A"></div>
+  </section>
+  <section>
+    <h2>B 卷</h2>
+    <div id="col-B"></div>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='arrange.js') }}"></script>
+{% endblock %}

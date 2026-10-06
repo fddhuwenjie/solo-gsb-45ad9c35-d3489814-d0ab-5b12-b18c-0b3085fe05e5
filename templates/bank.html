@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}题库 · 双卷印发校核{% endblock %}
+{% block content %}
+<h1>题库</h1>
+<p class="muted">每题四个选项并指定正确选项；题目与选项都有稳定标识。修改题库只影响之后的封存，不改变已封存卷的卷面与答题卡。</p>
+<div id="question-list"></div>
+
+<h2>新增题目</h2>
+<form class="card" id="add-form">
+  <textarea id="new-stem" placeholder="题干" required></textarea>
+  {% for i in range(4) %}
+  <div class="form-row opt-row">
+    <input type="radio" name="new-correct" value="{{ i }}" title="设为正确选项" required>
+    <input type="text" class="new-opt" placeholder="选项 {{ 'ABCD'[i] }}" required>
+  </div>
+  {% endfor %}
+  <p class="muted">勾选左侧圆点指定正确选项。</p>
+  <button class="primary" type="submit">添加题目</button>
+  <div class="msg" id="add-msg" style="display:none"></div>
+</form>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='bank.js') }}"></script>
+{% endblock %}

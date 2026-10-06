@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}封存卷 · 双卷印发校核{% endblock %}
+{% block content %}
+<h1>封存卷</h1>
+<p class="muted">每次封存同时生成 A、B 两卷快照；可回看卷面并打印试卷、答题卡、答案表。</p>
+<div id="batch-list"></div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='batches.js') }}"></script>
+{% endblock %}

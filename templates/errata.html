@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}勘误 · 双卷印发校核{% endblock %}
+{% block content %}
+<h1>答案勘误</h1>
+<p class="muted">按封存题目与当时印出的选项提交勘误；校验通过后同时更新 A、B 两卷答案表并保留记录。选项不属于封存题目或任一卷缺少映射时，整次拒绝，原答案不变。</p>
+<div class="msg" id="global-msg" style="display:none"></div>
+<div class="card" id="errata-form">
+  <div class="form-row">
+    <label>封存批次</label>
+    <select id="batch-select"></select>
+  </div>
+  <div class="form-row">
+    <label>封存题目</label>
+    <select id="question-select"></select>
+  </div>
+  <div id="option-picker"></div>
+  <div class="form-row">
+    <label>备注</label>
+    <input type="text" id="note" placeholder="勘误说明（可选）">
+  </div>
+  <button class="primary" id="submit-errata">提交勘误</button>
+  <div class="msg" id="form-msg" style="display:none"></div>
+</div>
+<h2>历次勘误</h2>
+<div id="errata-history"></div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='errata.js') }}"></script>
+{% endblock %}

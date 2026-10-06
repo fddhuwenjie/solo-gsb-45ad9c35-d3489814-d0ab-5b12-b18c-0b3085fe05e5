@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>打印 · 双卷印发校核</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="print-body">
+<div class="toolbar no-print">
+  <button class="primary" onclick="window.print()">打印</button>
+  <button onclick="history.back()">返回</button>
+  <span id="doc-title" class="muted"></span>
+</div>
+<main class="paper" id="sheet"></main>
+<script>
+window.PRINT_CTX = { batchId: {{ batch_id }}, version: "{{ version }}", kind: "{{ kind }}" };
+</script>
+<script src="{{ url_for('static', filename='common.js') }}"></script>
+<script src="{{ url_for('static', filename='print.js') }}"></script>
+</body>
+</html>
